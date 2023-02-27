@@ -24,7 +24,7 @@ flipButton.addEventListener('click', flip)
 // Start Button
 function startGame() {
   if (playerTurn === undefined) {
-    if (optionContainer.children.length != 0) {
+    if (optionContainer.children.length !== 0) {
       infoDisplay.textContent = 'Please place all your ships, then we can start!'
     } else {
       const allBoardBlocks = document.querySelectorAll('#computer div')
@@ -35,7 +35,6 @@ function startGame() {
     }
   }
 }
-
 startButton.addEventListener('click', startGame)
 
 // Game Board
@@ -229,12 +228,12 @@ function handleClick(e) {
     playerTurn = false
     const allBoardBlocks = document.querySelectorAll('#computer div')
     allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)))
-    setTimeout(computerGo, 2000)
+    setTimeout(computerTurn, 2000)
   }
 }
 
 // Computer Turn
-function computerGo() {
+function computerTurn() {
   if (!gameOver) {
     turnDisplay.textContent = 'My turn!'
     infoDisplay.textContent = 'Mwahahaha!'
@@ -244,7 +243,7 @@ function computerGo() {
       const allBoardBlocks = document.querySelectorAll('#player div')
 
       if (allBoardBlocks[randomGo].classList.contains('taken') && allBoardBlocks[randomGo].classList.contains('boom')) {
-        computerGo()
+        computerTurn()
         return
       } else if (allBoardBlocks[randomGo].classList.contains('taken') && !allBoardBlocks[randomGo].classList.contains('boom')) {
         allBoardBlocks[randomGo].classList.add('hit')
