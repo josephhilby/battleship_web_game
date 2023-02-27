@@ -229,7 +229,7 @@ function handleClick(e) {
     playerTurn = false
     const allBoardBlocks = document.querySelectorAll('#computer div')
     allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)))
-    setTimeout(computerGo, 3000)
+    setTimeout(computerGo, 2000)
   }
 }
 
@@ -258,13 +258,13 @@ function computerGo() {
         allBoardBlocks[randomGo].classList.add('miss')
         allBoardBlocks[randomGo].innerHTML = "X"
       }
-    }, 2000)
+    }, 1000)
 
     setTimeout(() => {
       playerTurn = true
       turnDisplay.textContent = "Your turn"
       const allBoardBlocks = document.querySelectorAll('#computer div')
       allBoardBlocks.forEach(block => block.addEventListener('click', handleClick))
-    }, 5000)
+    }, 3000)
   }
 }
